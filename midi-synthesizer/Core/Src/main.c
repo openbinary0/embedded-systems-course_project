@@ -18,11 +18,14 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "fatfs.h"
+#include "spi.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "SEGGER_RTT.h"
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -86,8 +89,19 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_SPI1_Init();
+  MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
+  SEGGER_RTT_Init();
 
+  // Open FAT filesystem
+  FATFS FatFs; //Fatfs handle
+  FRESULT res;
+
+  while ((res = f_mount(&FatFs, "", 1)) != FR_OK) { // 1=mount now
+    fprintf(stderr, "f_mount error (%i)\r\n", res);
+    HAL_Delay(100);
+  }
   /* USER CODE END 2 */
 
   /* Initialize leds */
@@ -102,8 +116,7 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+  while (1) {
 
     /* -- Sample board code to toggle leds ---- */
     BSP_LED_Toggle(LED_GREEN);
