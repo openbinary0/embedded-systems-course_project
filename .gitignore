@@ -81,7 +81,12 @@ CMakeLists.txt.user*
 .rcc/
 .uic/
 */build*/
+/.qtcreator/
 */.qtcreator/
 
 # Ignore audio files
 *.wav
+
+# Ignore root QT Creator project files
+/compile_commands.json
+/embedded-systems-course_project.*
