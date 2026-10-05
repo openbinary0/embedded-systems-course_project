@@ -1,0 +1,8 @@
+---
+Checks: >
+  -clang-analyzer-optin.core.FixedAddressDereference,
+  -readability-magic-numbers,
+  -readability-function-cognitive-complexity,
+  -readability-function-size,
+  -readability-identifier-length,
+  -cppcoreguidelines-avoid-non-const-global-variables

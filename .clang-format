@@ -1,0 +1,21 @@
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+---
+# Global/default settings
+AlignEscapedNewlines: DontAlign
+AlignOperands: AlignAfterOperator
+AlignTrailingComments: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: true
+BasedOnStyle: LLVM
+BinPackParameters: BinPack
+BreakBeforeBinaryOperators: All
+BreakTemplateDeclarations: Yes
+ColumnLimit: 100
+IndentPPDirectives: BeforeHash
+IndentWidth: 2
+NamespaceIndentation: All
+ReflowComments: Never
+TabWidth: 2
+UseTab: Never
+...
