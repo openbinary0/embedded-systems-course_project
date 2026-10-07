@@ -90,3 +90,6 @@ CMakeLists.txt.user*
 # Ignore root QT Creator project files
 /compile_commands.json
 /embedded-systems-course_project.*
+
+# Ignore SPEC.pdf
+SPEC.pdf

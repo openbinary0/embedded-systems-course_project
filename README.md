@@ -36,6 +36,8 @@ Along with a DAC, this gives us an analog audio signal.
 To divide things up, each subproject
 will have its own STM32L432KC and breadboard.
 
+\newpage
+
 ## Block Diagram
 
 ```
@@ -73,6 +75,8 @@ will have its own STM32L432KC and breadboard.
 				 │
 				Analog audio
 ```
+
+\newpage
 
 ## MIDI Pipeline (from .mid to audio signal)
 
@@ -130,6 +134,8 @@ To produce an audio signal representing notes we'll need:
    - Envelopes
 3. In case of a polyphonic song (song with multiple voices/notes
    playing at the same time): Mix (combine) the voices.
+
+\newpage
 
 #### Base Signal
 There are a couple ways of implementing the base signal (waves/samples):
@@ -213,6 +219,8 @@ for this such as:
 
 
 
+\newpage
+
 # General MIDI Info (Mostly AI-Generated)
 
 ## MIDI Sequencer
@@ -231,9 +239,9 @@ for this such as:
 
 | Synthesizer                | Needs SF2? | How it makes sound                                              |
 | -------------------------- | ---------- | --------------------------------------------------------------- |
-| **Oscillator synth**       | ❌          | Generates waveforms mathematically                              |
-| **Wavetable/sample synth** | ❌/optional | Uses samples/wavetables built into firmware or external storage |
-| **SoundFont synth**        | ✅          | Loads an `.sf2` containing samples + instrument definitions     |
+| **Oscillator synth**       | NO         | Generates waveforms mathematically                              |
+| **Wavetable/sample synth** | NO         | Uses samples/wavetables built into firmware or external storage |
+| **SoundFont synth**        | YES        | Loads an `.sf2` containing samples + instrument definitions     |
 
 So the simplest STM32 MIDI synth could be a sine wave generator. For multiple voices ("polyphony") you can add up the sine waves.
 
@@ -243,6 +251,8 @@ MIDI → oscillator → envelope → mixer → DAC
 
 ### Polyphony
 Polyphony is the maximum number of individual tones or notes an electronic instrument can produce at the exact same time. When you exceed the limit, the oldest sounding notes drop out or cut off.
+
+\newpage
 
 ### Envelope
 If you just generate a sine wave it would start and stop abruptly, which sounds unnatural. An **envelope** applies a changing multiplier to the sine wave. The most common one is **ADSR**: Attack, Decay, Sustain, Release.
