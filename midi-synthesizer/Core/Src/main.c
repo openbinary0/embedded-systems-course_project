@@ -20,6 +20,7 @@
 #include "main.h"
 #include "fatfs.h"
 #include "spi.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -91,6 +92,7 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   MX_FATFS_Init();
+  MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   SEGGER_RTT_Init();
 
