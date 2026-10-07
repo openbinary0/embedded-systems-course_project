@@ -126,6 +126,7 @@ to be parsed/decoded into structured instructions that
 the code can understand.
 
 To produce an audio signal representing notes we'll need:
+
 1. Base waves/samples (representing e.g. instruments)
 2. Then we apply the following operations on the
    base wave/samples to get the proper note samples:
@@ -134,8 +135,6 @@ To produce an audio signal representing notes we'll need:
    - Envelopes
 3. In case of a polyphonic song (song with multiple voices/notes
    playing at the same time): Mix (combine) the voices.
-
-\newpage
 
 #### Base Signal
 There are a couple ways of implementing the base signal (waves/samples):
@@ -168,8 +167,8 @@ extracting/preparing the samples or wavetables that will
 be embedded in the STM32's ROM. There are some useful tools
 for this such as:
 
-- https://teensyaudio.github.io/Wavetable-Synthesis/html/md_additional_pages_soundfontDecoder.html
-- https://ultraabox.github.io/sample_extractor.html
+- <https://teensyaudio.github.io/Wavetable-Synthesis/html/md_additional_pages_soundfontDecoder.html>
+- <https://ultraabox.github.io/sample_extractor.html>
 
 ## Product
 
@@ -180,6 +179,8 @@ for this such as:
 - Basic synthesizer which reads and parses MIDI events over
   UART and produces a single sine wave corresponding to
   the current note's frequency.
+
+\newpage
 
 ### Extra/Non-Essential Features
 - Polyphonic (allows for multiple notes/voices at a time)
@@ -197,7 +198,7 @@ for this such as:
 **Necessary:**
 
 - **2x DIN Chassi Mount:** for testing MIDI basics.
-  - https://www.electrokit.com/din-hona-5-pol-chassi-180
+  - <https://www.electrokit.com/din-hona-5-pol-chassi-180>
 - **1x or 2x USB to MIDI converters** (both way: send and receive MIDI events):
   Needed to test either the sequencer or synthesizer. You can use a
   computer connected over MIDI to replace the sequencer or synthesizer:
@@ -205,15 +206,16 @@ for this such as:
     - `sequencer -> computer (acts as synthesizer)`: Test the sequencer
 	- `computer (acts as sequencer) -> synthesizer`: Test the synthesizer
   - Links:
-    - https://www.kjell.com/se/produkter/ljud-bild/kablar-adaptrar/din/plexgear-usb-midi-interface-p23954
-	- Alt: https://www.amazon.com/usb-midi/s?k=usb+to+midi
+    - <https://www.kjell.com/se/produkter/ljud-bild/kablar-adaptrar/din/plexgear-usb-midi-interface-p23954>
+	- Alt: <https://www.amazon.com/usb-midi/s?k=usb+to+midi>
 
 **Maybe (If not available at University):**
+
 - **2x MIDI ports** (DIN female 5-pin) (that can connect to breadboard):
   Each part in the pipeline will need one MIDI port.
   The sequencer will have one for output, the synthesizer
   will have one for input.
-  - https://www.mouser.se/en/ProductDetail/Adafruit/1134?qs=GURawfaeGuCcC0%252BrNLxslQ%3D%3D
+  - <https://www.mouser.se/en/ProductDetail/Adafruit/1134?qs=GURawfaeGuCcC0%252BrNLxslQ%3D%3D>
 - **Optocoupler:** For MIDI input. As MIDI uses currents to transmit
   signals, an optocoupler is needed to convert a current to a voltage.
 
