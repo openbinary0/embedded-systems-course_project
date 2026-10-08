@@ -102,8 +102,26 @@ int main(void)
 
   while ((res = f_mount(&FatFs, "", 1)) != FR_OK) { // 1=mount now
     fprintf(stderr, "f_mount error (%i)\r\n", res);
-    HAL_Delay(100);
+    HAL_Delay(1000);
   }
+
+  /*{
+    FIL file;
+    if (FR_OK != f_open(&file, "test.txt", FA_READ)) {
+      Error_Handler();
+    }
+
+    UINT br;
+    char buf[16];
+
+    if (FR_OK != f_read(&file, buf, sizeof(buf), &br)) {
+      Error_Handler();
+    }
+
+    HAL_UART_Transmit(&huart2, (const uint8_t*)buf, br, 100);
+
+    f_close(&file);
+  }*/
   /* USER CODE END 2 */
 
   /* Initialize leds */
@@ -196,6 +214,7 @@ void Error_Handler(void)
   /* USER CODE BEGIN Error_Handler_Debug */
   /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
+  fprintf(stderr, " stop");
   while (1)
   {
   }

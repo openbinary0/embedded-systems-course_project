@@ -120,6 +120,7 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     FATFS/Target/user_diskio_spi.c
+    Core/Src/midi.c
     # Add user sources here
 )
 
